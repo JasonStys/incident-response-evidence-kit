@@ -1,0 +1,123 @@
+# Jason Stys: native OS/property/integrity tests, cross-language digests and zero-storage security gates.
+# BEGIN CODE MAP (generated; python scripts/code_map.py)
+# parameter: name — line 33
+# parameter: on — line 34
+# parameter: push — line 35
+# parameter: branches — line 36
+# parameter: pull_request — line 37
+# parameter: workflow_dispatch — line 38
+# parameter: permissions — line 39
+# parameter: contents — line 40
+# parameter: concurrency — line 41
+# parameter: group — line 42
+# expression: github.ref — line 42
+# parameter: jobs — line 44
+# parameter: quality — line 45
+# expression: matrix.python — line 46
+# expression: matrix.os — line 46
+# parameter: strategy — line 49
+# parameter: matrix — line 51
+# parameter: include — line 52
+# parameter: steps — line 57
+# parameter: uses — line 58
+# parameter: with — line 59
+# parameter: run — line 64
+# parameter: shell — line 66
+# parameter: native — line 68
+# parameter: os — line 75
+# parameter: toolchain — line 85
+# parameter: components — line 86
+# parameter: if — line 97
+# parameter: security — line 102
+# END CODE MAP
+name: Validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    name: Python ${{ matrix.python }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-24.04, python: '3.12'}
+          - {os: ubuntu-24.04, python: '3.14'}
+          - {os: windows-latest, python: '3.14'}
+          - {os: macos-15-intel, python: '3.14'}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install --require-hashes -r requirements-dev.lock
+      - name: Native SQLite/property/concurrency/privacy and maintained documentation
+        shell: bash
+        run: bash scripts/validate.sh
+  native:
+    name: Rust verifier / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-15-intel]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable action; exact compiler below
+        with:
+          toolchain: '1.98.0'
+          components: rustfmt, clippy
+      - name: Format, warnings, known vectors and native compiler tests
+        working-directory: native
+        run: |
+          cargo fmt --check
+          cargo clippy --locked --all-targets -- -D warnings
+          cargo test --locked
+          cargo build --release --locked
+      - name: Actual binary Python/Rust digest equivalence and over-limit CLI failure
+        run: python scripts/native_check.py
+      - name: Rust dependency advisory gate
+        if: runner.os == 'Linux'
+        working-directory: native
+        run: |
+          cargo install cargo-audit --version 0.22.2 --locked
+          cargo audit --deny warnings
+  security:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - run: python -m pip install --require-hashes -r requirements-dev.lock
+      - name: Complete development-graph advisory audit, no exclusions
+        run: python -m pip_audit -r requirements-dev.lock --disable-pip --no-deps
+      - run: |
+          python scripts/scanners.py gitleaks
+          python scripts/scanners.py actionlint
+      - name: Full-history secret and actual workflow/shell validation
+        run: |
+          .tools/gitleaks git . --redact --no-banner
+          .tools/actionlint
+          shellcheck scripts/validate.sh

@@ -1,0 +1,3 @@
+{"event_id":"demo-3","timestamp":"2026-10-10T09:01:00-07:00","kind":"blocked","actor":"fictional-analyst@example.invalid","asset":"192.0.2.10","message":"Synthetic blocked console access; training-token=fictional-only, not a real credential"}
+{"event_id":"demo-1","timestamp":"2026-10-10T16:00:00Z","kind":"auth_failure","actor":"fictional-analyst@example.invalid","asset":"192.0.2.10","message":"Synthetic password failure; no real account or employer data"}
+{"event_id":"demo-2","timestamp":"2026-10-10T18:00:30+02:00","kind":"auth_success","actor":"fictional-analyst@example.invalid","asset":"192.0.2.10","message":"Synthetic successful sign-in after failure; not evidence of compromise"}

@@ -1,0 +1,18 @@
+# Jason Stys: evidence, checkpoints, keys, databases and generated tools stay private.
+.venv/
+.tools/
+out/
+cases/
+*.sqlite*
+*.db*
+*.pem
+*.key
+.env*
+__pycache__/
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+coverage.xml
+native/target/

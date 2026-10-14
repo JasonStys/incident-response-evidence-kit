@@ -1,0 +1,17 @@
+# Jason Stys: independent bounded stdin SHA256 verifier using established RustCrypto, not custom crypto.
+[package]
+name = "evidence-digest"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.98"
+license = "MIT"
+description = "Bounded streaming evidence digest oracle by Jason Stys"
+
+[dependencies]
+sha2 = "=0.11.1"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "deny"
