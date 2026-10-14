@@ -25,7 +25,7 @@ This is an educational portfolio tool, **not a certified forensic product, proof
 
 ## First successful run
 
-Python3.12+ and Git are required; the application runtime uses only the Python standard library. From a fresh clone:
+Python 3.12+ and Git are required; the application runtime uses only the Python standard library. From a fresh clone:
 
 ```powershell
 python -m venv .venv
@@ -85,6 +85,12 @@ Every authored code file describes its purpose and has generated exact function/
 | [SECURITY.md](SECURITY.md) | Security policy. |
 | [docs/architecture.md](docs/architecture.md) | ADR-001: private transactional evidence with independent prefix checkpoints. |
 | [docs/contracts.md](docs/contracts.md) | Formats, privacy and integrity contracts. |
+| [docs/reports/benchmark.json](docs/reports/benchmark.json) | Actual five-batch parsing, SQLite collection/reverification and Python-allocation measurements. |
+| [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source acceptance snapshot with actual completed Actions checks. |
+| [docs/reports/demo.csv](docs/reports/demo.csv) | Fixed-column pseudonymized CSV of the selected fictional review timeline. |
+| [docs/reports/demo.html](docs/reports/demo.html) | Inert escaped rendering of the selected fictional review timeline. |
+| [docs/reports/demo.json](docs/reports/demo.json) | Approved-field projection of five actual fictional SQLite events, no raw messages/identifiers. |
+| [docs/reports/local.json](docs/reports/local.json) | Source-bound actual local test/coverage counts and native/CLI evidence summary. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and release review. |
 | [docs/research.md](docs/research.md) | Primary-source research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Runbook: authorized local evidence and reproducible demos. |

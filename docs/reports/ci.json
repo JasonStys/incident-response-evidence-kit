@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "executable_source_commit": "2c7232cdb6e5a74b969be023512d1055b2ee39c6",
+  "validate": {"run_id": 38516662018, "status": "completed", "conclusion": "success", "completed_updated_at": "2026-10-14T05:29:58Z", "url": "https://github.com/JasonStys/incident-response-evidence-kit/actions/runs/38516662018"},
+  "codeql": {"run_id": 38516662108, "status": "completed", "conclusion": "success", "completed_updated_at": "2026-10-14T05:27:34Z", "url": "https://github.com/JasonStys/incident-response-evidence-kit/actions/runs/38516662108", "language": "Python", "query_suite": "security-extended", "open_alerts_checked": 0},
+  "all_jobs": [
+    {"name": "Python 3.12 / ubuntu-24.04", "conclusion": "success", "passed_tests": 153, "combined_runtime_coverage_percent": 99.67},
+    {"name": "Python 3.14 / ubuntu-24.04", "conclusion": "success", "passed_tests": 153, "combined_runtime_coverage_percent": 99.67},
+    {"name": "Python 3.14 / windows-latest", "conclusion": "success", "passed_tests": 153, "combined_runtime_coverage_percent": 99.67},
+    {"name": "Python 3.14 / macos-15-intel", "conclusion": "success", "passed_tests": 153, "combined_runtime_coverage_percent": 99.67},
+    {"name": "Rust verifier / ubuntu-24.04", "conclusion": "success", "unit_tests": 4, "cross_language_cases": 21, "oversize_rejected": true, "advisory_gate": "passed"},
+    {"name": "Rust verifier / windows-latest", "conclusion": "success", "unit_tests": 4, "cross_language_cases": 21, "oversize_rejected": true},
+    {"name": "Rust verifier / macos-15-intel", "conclusion": "success", "unit_tests": 4, "cross_language_cases": 21, "oversize_rejected": true},
+    {"name": "security", "conclusion": "success", "gates": ["hash-locked development graph advisory audit", "full-history Gitleaks", "actionlint", "ShellCheck"]},
+    {"name": "CodeQL / Python", "conclusion": "success"}
+  ],
+  "repository_artifact_count_checked": 0,
+  "repository_actions_cache_count_checked": 0,
+  "account_storage_precheck": {"live_artifact_bytes": 8419929, "separate_cache_bytes": 9029833071, "included_billing_meter_percent": 100, "note": "Read-only check; current artifact occupancy is not accrued billing usage. No deletion, Packages, budgets, billing or local Docker mutations."},
+  "snapshot_note": "Immutable completed executable-source acceptance. A later report/documentation commit must run the same complete checks; current badges and Actions show its status. This snapshot never claims to bind to its own containing commit."
+}

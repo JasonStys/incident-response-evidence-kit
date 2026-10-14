@@ -24,7 +24,7 @@ Use established SHA256 for integrity and HMAC-SHA256 for domain-separated report
 
 Let B be source bytes, E events, C custody entries and P displayed rows. File read/hash and parse are O(B), with O(B+E) bounded Python allocation. JSON per-record validation is linear in bounded record length. Import uniqueness sets are expected O(E) time/O(E) space (hash-map worst cases may degrade). Verification is O(B_total+E_total+C) plus indexed per-source lookups; schema work is constant-sized. SQL index insert/query is roughly O(log E) per indexed row; keyset fetch is O(log E+P) when the matching index is used. Filter count scans matches (not O(1)). Full-case export includes verification; do not call the entire operation O(P).
 
-Limits: 20MiB per file, 64MiB original bytes per case, 256 files, 50,000 events, 10,000 custody records, 16KiB physical source line, 4,096 message characters, 256 other field characters, 1,000 report rows. Database opening rejects files over256MiB. Rust uses8KiB buffer/O(B) work and reads only cap+1 bytes to reject oversize. These caps are guardrails, not a promise of a hard CPU/RSS budget against a malicious database administrator.
+Limits: 20 MiB per file, 64 MiB original bytes per case, 256 files, 50,000 events, 10,000 custody records, 16 KiB physical source line, 4,096 message characters, 256 other field characters, 1,000 report rows. Database opening rejects files over 256 MiB. Rust uses an 8 KiB buffer, O(B) work and reads only cap+1 bytes to reject oversize. These caps are guardrails, not a promise of a hard CPU/RSS budget against a malicious database administrator.
 
 ## Consequences and revisit conditions
 

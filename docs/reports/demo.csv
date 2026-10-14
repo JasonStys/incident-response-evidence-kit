@@ -1,0 +1,6 @@
+utc,kind,actor,asset,evidence,line
+2026-10-10T16:00:00.000000Z,auth_failure,actor-a8229d64f7d864d88a2ce0b3,asset-a4e8a1b6fe8aebceb1a5a447,evidence-6dd4764984c2b25dab4c16ed,2
+2026-10-10T16:00:30.000000Z,auth_success,actor-a8229d64f7d864d88a2ce0b3,asset-a4e8a1b6fe8aebceb1a5a447,evidence-6dd4764984c2b25dab4c16ed,3
+2026-10-10T16:00:30.100000Z,configuration,actor-df6532f163b21a5d61d83948,asset-3e6800cde064616adccb4bfa,evidence-e03ded330dcfa6f74b0af959,2
+2026-10-10T16:01:00.000000Z,blocked,actor-a8229d64f7d864d88a2ce0b3,asset-a4e8a1b6fe8aebceb1a5a447,evidence-6dd4764984c2b25dab4c16ed,1
+2026-10-10T16:02:00.000000Z,alert,actor-df6532f163b21a5d61d83948,asset-3e6800cde064616adccb4bfa,evidence-e03ded330dcfa6f74b0af959,3

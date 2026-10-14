@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "executable_source_commit": "2c7232cdb6e5a74b969be023512d1055b2ee39c6",
+  "environment": {"os": "Windows", "python": "3.14.6", "rust": "1.98.0"},
+  "tests": {"passed": 153, "failed": 0, "skipped": 0},
+  "coverage": {"scope": "all authored irkit runtime code; statement plus branch; no exclusions", "statements": 445, "covered_statements": 444, "branches": 158, "covered_branches": 157, "combined_percent": 99.66832504145937, "required_percent": 95},
+  "native": {"unit_tests_passed": 4, "cross_language_inputs_matched": 21, "oversize_cli_rejected": true, "rustfmt": "passed", "clippy": "passed", "release_build": "passed", "known_vectors": ["empty", "abc"]},
+  "actual_demo": {"files": 2, "events": 5, "custody_entries": 5, "checkpoint_matched": true, "reports": ["JSON", "CSV", "inert HTML"]},
+  "security": {"python_dependency_audit": "no known vulnerabilities", "cargo_audit_version": "0.22.2", "cargo_lock_packages": 11, "cargo_vulnerabilities": 0, "cargo_warnings": 0, "advisory_database_commit": "6aed84668c23d7f535077a9fe918bf1fa0f6a5bc", "advisory_database_last_updated": "2026-10-13T17:07:33+02:00", "ignored_advisories": []},
+  "benchmark": "benchmark.json: actual five-repeat synthetic measurements, not an SLA or comparative speedup",
+  "qualification": "Local source acceptance, not production forensic/legal/compliance certification. POSIX assertions are verified by actual hosted Linux/macOS lanes; Windows mode bits are not full ACL enforcement. No private case, checkpoint, key or raw investigation data is published."
+}

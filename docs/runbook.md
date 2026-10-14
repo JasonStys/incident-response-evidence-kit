@@ -6,7 +6,7 @@ Created by Jason Stys. Help/contact: [GitHub](https://github.com/JasonStys), [Li
 
 Obtain explicit authorization for the specific source, document collection authority/source/clock/operator-code mapping privately, and follow legal/organizational incident procedures. Use a trusted encrypted disk and appropriate directory ACLs. Close untrusted programs. Do not collect unrelated resumes, emails, private employer code or broad home folders. The CLI reads only the file you name; `--ack-authorized` is an acknowledgement, not independent proof.
 
-Create a new parent directory yourself (`out` for fictional demo work). A new case cannot replace an existing folder. `python -m irkit --help` lists commands; each supports `--help`. Application runtime is Python3.12+stdlib, no package installation beyond Python. Development tools require the hash-locked environment from README. Optional native hashing requires Rust1.98.0 and the Cargo lock graph.
+Create a new parent directory yourself (`out` for fictional demo work). A new case cannot replace an existing folder. `python -m irkit --help` lists commands; each supports `--help`. Application runtime is Python 3.12+ standard library, no package installation beyond Python. Development tools require the hash-locked environment from README. Optional native hashing requires Rust 1.98.0 and the Cargo lock graph.
 
 ## Case lifecycle
 
@@ -14,10 +14,10 @@ Create a new parent directory yourself (`out` for fictional demo work). A new ca
 2. `python -m irkit collect out/case-one examples/access-review.jsonl --format jsonl --source access-demo --operator analyst-a --ack-authorized` preserves exact bytes and returns a **private** reference. Prefer source reference codes to names/IP/path display values; retain code mapping under your organization's controls.
 3. `python -m irkit record out/case-one PRIVATE_DIGEST --action review --operator analyst-b` records a review assertion. `handoff` records another handling assertion; neither proves possession or identity.
 4. `python -m irkit checkpoint out/case-one out/checkpoint-one.json` saves a prefix pin. Preserve a separately controlled copy **before** relying on it; never publish its IDs/hashes by default. Future pins must use new output names.
-5. `python -m irkit verify out/case-one --checkpoint out/checkpoint-one.json` rechecks byte/event/provenance/schema integrity and the supplied prefix. Without a pin it reports anchoredFalse, not authenticated history.
+5. `python -m irkit verify out/case-one --checkpoint out/checkpoint-one.json` rechecks byte/event/provenance/schema integrity and the supplied prefix. Without a pin it reports `anchored=False`, not authenticated history.
 6. `python -m irkit export out/case-one out/review-one --checkpoint out/checkpoint-one.json --start 2026-10-10T16:00:00Z --end 2026-10-10T16:03:00Z --limit 1000` creates JSON, CSV and inert HTML. Review all contents/recipient permissions before sharing; exact timestamps/patterns remain sensitive. Report does not contain private event messages.
 
-Rust oracle: `cargo build --release --locked --manifest-path native/Cargo.toml`, then feed **bytes** to `native/target/release/evidence-digest` via stdin from a trusted shell/Python binary reader. Windows PowerShell string pipelines are not byte-faithful; use `python scripts/native_check.py` for portable equivalence validation, not `Get-Content | ...` on binary evidence. The binary prints count+SHA256 and reads at most20MiB+1; keep real digest output private. It does not validate SQLite custody or parse events.
+Rust oracle: `cargo build --release --locked --manifest-path native/Cargo.toml`, then feed **bytes** to `native/target/release/evidence-digest` via stdin from a trusted shell/Python binary reader. Windows PowerShell string pipelines are not byte-faithful; use `python scripts/native_check.py` for portable equivalence validation, not `Get-Content | ...` on binary evidence. The binary prints count+SHA256 and reads at most 20 MiB+1 byte; keep real digest output private. It does not validate SQLite custody or parse events.
 
 ## Troubleshooting and failures
 

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "executable_source_commit": "2c7232cdb6e5a74b969be023512d1055b2ee39c6",
+  "python": "3.14.6",
+  "os": "Windows",
+  "events_per_batch": 1000,
+  "input_bytes": 188889,
+  "repeats": 5,
+  "parse_python_peak_bytes": 1161072,
+  "median_ms": {
+    "parse_ms": 10.883199982345104,
+    "collect_ms": 39.996800012886524,
+    "verify_ms": 23.54130009189248
+  },
+  "samples_ms": {
+    "parse_ms": [
+      10.883199982345104,
+      13.119400013238192,
+      11.2228998914361,
+      10.260000126436353,
+      10.695199947804213
+    ],
+    "collect_ms": [
+      44.55609992146492,
+      43.79809997044504,
+      39.996800012886524,
+      37.98549994826317,
+      38.553099846467376
+    ],
+    "verify_ms": [
+      23.005399852991104,
+      27.587000047788024,
+      23.54130009189248,
+      22.759800078347325,
+      23.565499810501933
+    ]
+  },
+  "scope": "Actual local synthetic timings; collection includes file I/O, SQLite insert/commit and genesis verification; verification reparses bytes/rechecks database, not network collection. Parse allocation peak is not RSS. Informational, not an SLA or comparative speedup."
+}
