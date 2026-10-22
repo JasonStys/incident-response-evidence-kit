@@ -91,6 +91,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [docs/reports/demo.html](docs/reports/demo.html) | Inert escaped rendering of the selected fictional review timeline. |
 | [docs/reports/demo.json](docs/reports/demo.json) | Approved-field projection of five actual fictional SQLite events, no raw messages/identifiers. |
 | [docs/reports/local.json](docs/reports/local.json) | Source-bound actual local test/coverage counts and native/CLI evidence summary. |
+| [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and release review. |
 | [docs/research.md](docs/research.md) | Primary-source research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Runbook: authorized local evidence and reproducible demos. |
