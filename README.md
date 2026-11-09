@@ -20,6 +20,7 @@ This is an educational portfolio tool, **not a certified forensic product, proof
 | Integrity / checkpoints | `Case.verify` / `checkpoint`: rehash raw BLOBs, independently reparse and compare events, check schema/provenance, optionally compare an externally retained prefix pin. |
 | Investigation timeline | `Case.timeline`: stable `(UTC,evidence digest,source line)` ordering, kind/time filters and indexed keyset pagination. Source clocks are not treated as ground truth. |
 | Minimized reports | `export`: consistent verified snapshot, HMAC domain-separated case-specific pseudonyms, no raw messages/paths/original identities/hashes, bounded JSON/CSV/inert HTML. |
+| [Exact-line bookmarks](docs/bookmarks.md) | Checkpoint/current-case-bound private analyst sidecars resolve exact original digest/line references; selected handoffs omit private notes/operators/raw provenance and preserve immutable evidence. |
 | Independent native oracle | Rust `digest_reader`: 8KiB streaming buffer, established RustCrypto SHA256, exact 20MiB cap; cross-language checks against Python/OpenSSL-backed hashlib and fixed vectors. |
 | Operational evidence | Real CLI/demo, atomicity/concurrency/tamper/property/privacy tests, measured benchmark, pinned dependency/scanner/Actions gates. No Actions artifact uploads or caches. |
 
@@ -84,8 +85,10 @@ Every authored code file describes its purpose and has generated exact function/
 | [README.md](README.md) | Incident Response Evidence Kit. |
 | [SECURITY.md](SECURITY.md) | Security policy. |
 | [docs/architecture.md](docs/architecture.md) | ADR-001: private transactional evidence with independent prefix checkpoints. |
+| [docs/bookmarks.md](docs/bookmarks.md) | Exact-line bookmarks and minimized handoff. |
 | [docs/contracts.md](docs/contracts.md) | Formats, privacy and integrity contracts. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Actual five-batch parsing, SQLite collection/reverification and Python-allocation measurements. |
+| [docs/reports/bookmarks-2026-11-09.md](docs/reports/bookmarks-2026-11-09.md) | Bookmark handoff workflow validation — 2026-11-09. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source acceptance snapshot with actual completed Actions checks. |
 | [docs/reports/demo.csv](docs/reports/demo.csv) | Fixed-column pseudonymized CSV of the selected fictional review timeline. |
 | [docs/reports/demo.html](docs/reports/demo.html) | Inert escaped rendering of the selected fictional review timeline. |
@@ -101,6 +104,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [examples/service-change.csv](examples/service-change.csv) | Fictional quoted service-change and alert CSV records, no real organizations. |
 | [irkit/\_\_init\_\_.py](irkit/__init__.py) | Local incident evidence contracts by Jason Stys; no import-time I/O or network activity. |
 | [irkit/\_\_main\_\_.py](irkit/__main__.py) | Local-only evidence CLI with explicit authorization and safe error output. Created by Jason Stys. |
+| [irkit/bookmarks.py](irkit/bookmarks.py) | Exact evidence-line annotations and minimized checkpoint-bound handoff. Created by Jason Stys. |
 | [irkit/contracts.py](irkit/contracts.py) | Strict schemas, safe errors and microsecond UTC normalization. Created by Jason Stys. |
 | [irkit/files.py](irkit/files.py) | Bounded regular-file acquisition and exclusive output in trusted directories. Jason Stys. |
 | [irkit/parsing.py](irkit/parsing.py) | Strict bounded JSONL/CSV event adapters; binary evidence is retained opaquely. Jason Stys. |
@@ -124,6 +128,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [sql/schema.sql](sql/schema.sql) | Jason Stys: transactional private BLOB evidence, ordered provenance and indexed immutable events. |
 | [tests/conftest.py](tests/conftest.py) | Disposable synthetic evidence fixtures; never read real accounts or host logs. Jason Stys. |
 | [tests/test\_anchor.py](tests/test_anchor.py) | Prove the difference between internal consistency and an independently retained prefix. Jason Stys. |
+| [tests/test\_bookmarks.py](tests/test_bookmarks.py) | Independent exact-line sidecar, privacy, stale-case and operator handoff tests. Created by Jason Stys. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | UTC/schema/JSON/property validation with independent expected values. Created by Jason Stys. |
 | [tests/test\_parsing.py](tests/test_parsing.py) | JSONL/CSV malformed, duplicate, multiline and bounded-input regression tests. Jason Stys. |
 | [tests/test\_privacy\_cli.py](tests/test_privacy_cli.py) | Actual CLI, public projection, output safety and source-path contracts. Created by Jason Stys. |
