@@ -1,20 +1,22 @@
 """Run actual synthetic collection, handoff, checkpoint and redacted reporting. Created by Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 25
-# variable: NOW — line 26
-# definition: main — line 29
-# variable: output — line 32
-# variable: case — line 33
-# variable: digest — line 34
-# variable: checkpoint — line 43
-# variable: verified — line 44
-# variable: report — line 46
-# variable: row — line 52
-# variable: row — line 53
+# variable: ROOT — line 27
+# variable: NOW — line 28
+# definition: main — line 31
+# variable: parser — line 34
+# variable: output — line 36
+# variable: case — line 37
+# variable: digest — line 38
+# variable: checkpoint — line 47
+# variable: verified — line 48
+# variable: report — line 50
+# variable: row — line 56
+# variable: row — line 57
 # END CODE MAP
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -29,7 +31,9 @@ NOW = "2026-10-10T16:05:00Z"
 def main() -> None:
     """Use only supplied fictional fixtures and a new ignored directory; assert independently known totals."""
     (ROOT / "out").mkdir(exist_ok=True, mode=0o700)
-    output = new_directory(ROOT / "out" / "demo")
+    parser = argparse.ArgumentParser(description="Jason Stys — fictional evidence demo")
+    parser.add_argument("--output", type=Path, default=ROOT / "out" / "demo")
+    output = new_directory(parser.parse_args().output)
     case = Case.create(output / "case", "analyst-a", NOW)
     digest = case.collect(
         ROOT / "examples/access-review.jsonl", "jsonl", "analyst-a", "access-demo", NOW

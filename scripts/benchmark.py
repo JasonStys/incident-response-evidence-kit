@@ -1,25 +1,27 @@
 """Measure bounded synthetic parsing/SQLite collection/reverification; no speedup or SLA claim. Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 34
-# definition: main — line 37
-# variable: output — line 40
-# variable: data — line 41
-# variable: number — line 52
-# variable: elapsed — line 55
-# variable: _ — line 58
-# variable: peak — line 58
-# variable: number — line 60
-# variable: case — line 61
-# variable: started — line 64
-# variable: started — line 67
-# variable: started — line 76
-# variable: report — line 79
-# variable: name — line 88
-# variable: values — line 88
+# variable: ROOT — line 36
+# definition: main — line 39
+# variable: parser — line 42
+# variable: output — line 46
+# variable: data — line 47
+# variable: number — line 58
+# variable: elapsed — line 61
+# variable: _ — line 64
+# variable: peak — line 64
+# variable: number — line 66
+# variable: case — line 67
+# variable: started — line 70
+# variable: started — line 73
+# variable: started — line 82
+# variable: report — line 85
+# variable: name — line 94
+# variable: values — line 94
 # END CODE MAP
 
 from __future__ import annotations
 
+import argparse
 import json
 import platform
 import statistics
@@ -37,7 +39,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     """Measure five actual 1000-event batches; peak is Python allocator bytes, not process RSS."""
     (ROOT / "out").mkdir(exist_ok=True, mode=0o700)
-    output = new_directory(ROOT / "out/benchmark")
+    parser = argparse.ArgumentParser(
+        description="Jason Stys — bounded synthetic benchmark"
+    )
+    parser.add_argument("--output", type=Path, default=ROOT / "out/benchmark")
+    output = new_directory(parser.parse_args().output)
     data = "\n".join(
         json.dumps(
             {

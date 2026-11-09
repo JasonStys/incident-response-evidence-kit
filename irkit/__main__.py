@@ -1,18 +1,20 @@
 """Local-only evidence CLI with explicit authorization and safe error output. Created by Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# definition: main — line 31
-# parameter: argv — line 31
-# variable: parser — line 33
-# variable: commands — line 36
-# variable: name — line 37
-# variable: command — line 38
-# variable: args — line 80
-# variable: now — line 82
-# variable: case — line 85
-# variable: checkpoint — line 90
-# variable: digest — line 96
-# variable: verified — line 107
-# variable: report — line 113
+# definition: main — line 34
+# parameter: argv — line 34
+# variable: parser — line 36
+# variable: commands — line 39
+# variable: name — line 40
+# variable: command — line 50
+# variable: args — line 95
+# variable: now — line 97
+# variable: case — line 100
+# variable: checkpoint — line 105
+# variable: selected — line 115
+# variable: handoff — line 116
+# variable: digest — line 123
+# variable: verified — line 134
+# variable: report — line 140
 # END CODE MAP
 
 from __future__ import annotations
@@ -22,8 +24,9 @@ import sqlite3
 from datetime import UTC, datetime
 from pathlib import Path
 
-from .contracts import EvidenceError, json_value
-from .files import read_file
+from . import bookmarks
+from .contracts import EvidenceError, canonical, json_value
+from .files import read_file, write_new
 from .report import export
 from .store import Case
 
@@ -34,7 +37,16 @@ def main(argv: list[str] | None = None) -> int:
         description="Incident Response Evidence Kit — created by Jason Stys. Local private evidence; no network or extraction."
     )
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("init", "collect", "record", "checkpoint", "verify", "export"):
+    for name in (
+        "init",
+        "collect",
+        "record",
+        "checkpoint",
+        "verify",
+        "export",
+        "bookmark-template",
+        "bookmarks",
+    ):
         command = commands.add_parser(name)
         command.add_argument("case", type=Path)
         if name in {"init", "collect", "record"}:
@@ -64,12 +76,15 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument(
                 "--action", choices=["review", "handoff"], required=True
             )
-        if name in {"checkpoint", "export"}:
+        if name in {"checkpoint", "export", "bookmark-template", "bookmarks"}:
             command.add_argument("output", type=Path)
-        if name in {"verify", "export"}:
+        if name == "bookmarks":
+            command.add_argument("--selections", type=Path, required=True)
+        if name in {"verify", "export", "bookmarks", "bookmark-template"}:
             command.add_argument(
                 "--checkpoint",
                 type=Path,
+                required=name in {"bookmarks", "bookmark-template"},
                 help="Independently protected prefix checkpoint; never infer authenticity from the same disk",
             )
         if name == "export":
@@ -92,7 +107,19 @@ def main(argv: list[str] | None = None) -> int:
             if getattr(args, "checkpoint", None)
             else None
         )
-        if args.command == "collect":
+        if args.command == "bookmark-template":
+            write_new(
+                args.output, canonical(bookmarks.template(case, checkpoint)) + b"\n"
+            )
+        elif args.command == "bookmarks":
+            selected = json_value(read_file(args.selections, 1024 * 1024))
+            handoff = bookmarks.review(case, selected, checkpoint)
+            bookmarks.export(handoff, args.output)
+            print(
+                f"Minimized selected handoff: {len(handoff['timeline'])} rows; private notes remain outside this output"
+            )
+            return 0
+        elif args.command == "collect":
             digest = case.collect(
                 args.file, args.format, args.operator, args.source, now
             )
