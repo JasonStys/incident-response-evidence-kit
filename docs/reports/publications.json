@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "project": "incident-response-evidence-kit",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+  "sourceUrl": "https://github.com/JasonStys/incident-response-evidence-kit/tree/dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+  "functionalEvidenceBaseline": "dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42702526914,
+      "event": "push",
+      "headSha": "dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/incident-response-evidence-kit/actions/runs/42702526914"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42702526878,
+      "event": "push",
+      "headSha": "dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/incident-response-evidence-kit/actions/runs/42702526878"
+    }
+  ],
+  "summary": "Create exact-digest/line analyst bookmarks and minimized handoffs from one verified SQLite evidence snapshot.",
+  "rationale": "Lets analysts share necessary findings while retaining chain/checkpoint bindings and excluding raw originals and notes.",
+  "limitations": [
+    "Analyst notes and tags are private assertions, not incident attribution.",
+    "A matching checkpoint does not prove that a copy is independently stored.",
+    "Minimized pseudonymized handoffs are not anonymous; review identifying evidence before sharing."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 44731,
+      "sha256": "71574832a55128345b7288055639039681ff54928530961f50a9222cc233f818",
+      "sourceBaseline": "dbf51a335ec512ad4f1f1485e434c5207eaf62cf",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 5,
+        "renderedPageSha256": {
+          "page-1.png": "958c71d90d486961b2919e1e5e4ea1acc969e0379775d51ec9e1882ba1e35c23",
+          "page-2.png": "830b6495a1be102bb00caa6d2d40b718cf259d1fb856414ee58a415fff064187",
+          "page-3.png": "0c4d2ec702ea6812866319986dd0ae734d51b6a2e22e9e2ba978793b3c7ddb82",
+          "page-4.png": "9bf78d9a3f07c83d0571c5b11900a3703097f3d5764d96c78586d0b90451e255",
+          "page-5.png": "e5373a7cc9dea51a0f7d0c92ec72bd442bad7f5b17d34f812f5ede8e45580f2a"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
