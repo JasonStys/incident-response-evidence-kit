@@ -4,22 +4,22 @@
 # variable: BEGIN — line 33
 # variable: END — line 33
 # variable: SPECIAL — line 34
-# definition: purpose — line 56
-# parameter: path — line 56
-# variable: source — line 60
-# variable: line — line 68
-# definition: main — line 74
-# variable: parser — line 76
-# variable: args — line 78
-# variable: files — line 79
-# variable: rows — line 87
-# variable: path — line 88
-# variable: label — line 89
-# variable: readme — line 91
-# variable: original — line 92
-# variable: end — line 93
-# variable: start — line 93
-# variable: expected — line 94
+# definition: purpose — line 58
+# parameter: path — line 58
+# variable: source — line 62
+# variable: line — line 70
+# definition: main — line 76
+# variable: parser — line 78
+# variable: args — line 80
+# variable: files — line 81
+# variable: rows — line 89
+# variable: path — line 90
+# variable: label — line 91
+# variable: readme — line 93
+# variable: original — line 94
+# variable: end — line 95
+# variable: start — line 95
+# variable: expected — line 96
 # END CODE MAP
 
 from __future__ import annotations
@@ -32,6 +32,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "docs/reports/project-guide.docx": "Reviewed Word project guide with source revision and dated validation scope.",
+    "docs/reports/publications.json": "Exact reviewed Office file identities, immutable source baseline and workflow observations.",
     ".gitignore": "Keep original evidence, private databases, checkpoints, tools and working data untracked.",
     ".gitattributes": "Consistent LF source checkout across operating systems.",
     "LICENSE": "MIT terms for authored source; upstream tools retain their licenses.",

@@ -87,14 +87,18 @@ Every authored code file describes its purpose and has generated exact function/
 | [docs/architecture.md](docs/architecture.md) | ADR-001: private transactional evidence with independent prefix checkpoints. |
 | [docs/bookmarks.md](docs/bookmarks.md) | Exact-line bookmarks and minimized handoff. |
 | [docs/contracts.md](docs/contracts.md) | Formats, privacy and integrity contracts. |
+| [docs/handbook.md](docs/handbook.md) | Incident Response Evidence Kit handbook. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Actual five-batch parsing, SQLite collection/reverification and Python-allocation measurements. |
 | [docs/reports/bookmarks-2026-11-09.md](docs/reports/bookmarks-2026-11-09.md) | Bookmark handoff workflow validation — 2026-11-09. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source acceptance snapshot with actual completed Actions checks. |
 | [docs/reports/demo.csv](docs/reports/demo.csv) | Fixed-column pseudonymized CSV of the selected fictional review timeline. |
 | [docs/reports/demo.html](docs/reports/demo.html) | Inert escaped rendering of the selected fictional review timeline. |
 | [docs/reports/demo.json](docs/reports/demo.json) | Approved-field projection of five actual fictional SQLite events, no raw messages/identifiers. |
+| [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/local.json](docs/reports/local.json) | Source-bound actual local test/coverage counts and native/CLI evidence summary. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed Word project guide with source revision and dated validation scope. |
+| [docs/reports/publications.json](docs/reports/publications.json) | Exact reviewed Office file identities, immutable source baseline and workflow observations. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and release review. |
 | [docs/research.md](docs/research.md) | Primary-source research and design rationale. |
 | [docs/runbook.md](docs/runbook.md) | Runbook: authorized local evidence and reproducible demos. |
@@ -142,3 +146,9 @@ Every authored code file describes its purpose and has generated exact function/
 Use only evidence you are authorized to acquire. Do not run this against a shared/production directory or publish `out/`, databases, checkpoint files or original CLI references. Follow your organization's legal/retention/incident procedures and review every report before sharing. No automatic claims of compromise, attribution, guilt or employment suitability. Planned extensions (not implemented): signed external attestations, encrypted database integration, streaming disk-image collection, additional explicit parsers, authenticated multi-user case review and measured process-crash/power-loss testing.
 
 Authored source is MIT, copyright Jason Stys. Dependency licenses remain their own. Bugs/help: [GitHub](https://github.com/JasonStys/incident-response-evidence-kit/issues); sensitive disclosures follow [SECURITY](SECURITY.md), never public evidence uploads.
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
