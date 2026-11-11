@@ -50,3 +50,10 @@ The reviewed source is [`dbf51a335ec512ad4f1f1485e434c5207eaf62cf`](https://gith
 ## Maintaining these editions
 
 Update the editable usage/design/test documents first. Rebuild and visually review every Word page and workbook tab before replacing an edition; verify the exact binary digests and evidence source in publications.json. Keep account data, logs with secrets, installed-app state and private test stores out of documentation. Source and release assets retain their existing security and licensing boundaries.
+
+## Current graphical workflows
+
+- [Native usage, file formats and privacy](native-workbench.md).
+- [Native workflow validation scope](reports/native-workbench-2026-11-10.md).
+
+Earlier Office editions and benchmark reports retain their dated source scope; they do not establish acceptance of a later native package.

@@ -16,3 +16,7 @@ __pycache__/
 .coverage*
 coverage.xml
 native/target/
+
+# Jason Stys: generated portable candidate and private packaging resources.
+release/
+*.spec

@@ -1,131 +1,143 @@
 """Transactional private evidence, anchored custody checks and stable keyset timelines. Jason Stys."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: SCHEMA — line 158
-# variable: ZERO — line 159
-# definition: schema_hash — line 162
-# parameter: connection — line 162
-# definition: append — line 173
-# parameter: connection — line 173
-# parameter: payload — line 173
-# variable: row — line 175
-# variable: previous — line 178
-# variable: sequence — line 178
-# variable: digest — line 181
-# definition: Case — line 189
-# definition: __init__ — line 192
-# parameter: root — line 192
-# parameter: self — line 192
-# attribute: root — line 194
-# attribute: database — line 195
-# definition: create — line 204
-# parameter: cls — line 204
-# parameter: operator — line 204
-# parameter: root — line 204
-# parameter: timestamp — line 204
-# variable: operator — line 206
-# variable: timestamp — line 206
-# variable: root — line 207
-# variable: case — line 209
-# variable: connection — line 210
-# variable: case_id — line 215
-# variable: key — line 215
-# definition: connection — line 233
-# parameter: self — line 233
-# parameter: write — line 233
-# variable: suffix — line 236
-# variable: connection — line 238
-# definition: _verify — line 257
-# parameter: checkpoint — line 258
-# parameter: connection — line 258
-# parameter: self — line 258
-# definition: _inspect — line 268
-# parameter: checkpoint — line 269
-# parameter: connection — line 269
-# parameter: self — line 269
-# variable: metadata — line 279
-# variable: case_id — line 282
-# variable: key — line 282
-# variable: char — line 286
-# variable: event_count — line 291
-# variable: count — line 292
-# variable: size — line 292
-# variable: commitments — line 297
-# variable: digest — line 298
-# variable: events_digest — line 298
-# variable: format_name — line 298
-# variable: raw — line 298
-# variable: normalized — line 308
-# variable: actual — line 309
-# variable: event — line 313
-# variable: expected — line 313
-# variable: row — line 314
-# variable: custody — line 324
-# variable: previous — line 327
-# variable: collected — line 328
-# variable: encoded — line 329
-# variable: expected_seq — line 329
-# variable: head — line 329
-# variable: old — line 329
-# variable: sequence — line 329
-# variable: payload — line 330
-# variable: expected_genesis — line 346
-# variable: digest — line 358
-# variable: previous — line 383
-# definition: verify — line 413
-# parameter: checkpoint — line 413
-# parameter: self — line 413
-# variable: connection — line 415
-# definition: collect — line 418
-# parameter: format_name — line 419
-# parameter: operator — line 419
-# parameter: path — line 419
-# parameter: self — line 419
-# parameter: source — line 419
-# parameter: timestamp — line 419
-# variable: operator — line 422
-# variable: source — line 422
-# variable: timestamp — line 422
-# variable: raw — line 423
-# variable: events — line 424
-# variable: digest — line 425
-# variable: event_digest — line 425
-# variable: event — line 427
-# variable: connection — line 429
-# variable: verified — line 430
-# variable: existing — line 431
-# variable: event — line 450
-# definition: record — line 468
-# parameter: action — line 468
-# parameter: digest — line 468
-# parameter: operator — line 468
-# parameter: self — line 468
-# parameter: timestamp — line 468
-# variable: operator — line 470
-# variable: timestamp — line 470
-# variable: connection — line 477
-# definition: checkpoint — line 493
-# parameter: path — line 493
-# parameter: self — line 493
-# variable: verified — line 495
-# variable: key — line 499
-# definition: timeline — line 504
-# parameter: self — line 505
-# parameter: connection — line 506
-# parameter: kind — line 508
-# parameter: start — line 509
-# parameter: end — line 510
-# parameter: limit — line 511
-# parameter: cursor — line 512
-# variable: end — line 522
-# variable: start — line 522
-# variable: clauses — line 528
-# variable: parameters — line 529
-# variable: clause — line 530
-# variable: value — line 530
-# variable: where — line 534
-# variable: count — line 535
-# variable: where — line 547
-# variable: rows — line 549
+# variable: SCHEMA — line 171
+# variable: ZERO — line 172
+# variable: VM_STEPS — line 173
+# variable: REQUIRED_TABLES — line 174
+# definition: schema_hash — line 177
+# parameter: connection — line 177
+# definition: append — line 188
+# parameter: connection — line 188
+# parameter: payload — line 188
+# variable: row — line 190
+# variable: previous — line 193
+# variable: sequence — line 193
+# variable: digest — line 196
+# definition: Case — line 204
+# definition: __init__ — line 207
+# parameter: root — line 207
+# parameter: self — line 207
+# attribute: root — line 209
+# attribute: database — line 210
+# definition: create — line 219
+# parameter: cls — line 219
+# parameter: operator — line 219
+# parameter: root — line 219
+# parameter: timestamp — line 219
+# variable: operator — line 221
+# variable: timestamp — line 221
+# variable: root — line 222
+# variable: case — line 224
+# variable: connection — line 225
+# variable: case_id — line 230
+# variable: key — line 230
+# definition: connection — line 248
+# parameter: _initialize — line 249
+# parameter: self — line 249
+# parameter: write — line 249
+# variable: suffix — line 253
+# variable: connection — line 255
+# variable: remaining — line 265
+# definition: progress — line 267
+# variable: remaining — line 270
+# variable: objects — line 278
+# variable: tables — line 285
+# variable: _ — line 287
+# variable: kind — line 287
+# variable: name — line 287
+# variable: schema — line 287
+# definition: _verify — line 302
+# parameter: checkpoint — line 303
+# parameter: connection — line 303
+# parameter: self — line 303
+# definition: _inspect — line 313
+# parameter: checkpoint — line 314
+# parameter: connection — line 314
+# parameter: self — line 314
+# variable: metadata — line 324
+# variable: case_id — line 327
+# variable: key — line 327
+# variable: char — line 331
+# variable: event_count — line 336
+# variable: count — line 337
+# variable: size — line 337
+# variable: commitments — line 342
+# variable: digest — line 343
+# variable: events_digest — line 343
+# variable: format_name — line 343
+# variable: raw — line 343
+# variable: normalized — line 353
+# variable: actual — line 354
+# variable: event — line 358
+# variable: expected — line 358
+# variable: row — line 359
+# variable: custody — line 369
+# variable: previous — line 374
+# variable: collected — line 375
+# variable: encoded — line 376
+# variable: expected_seq — line 376
+# variable: head — line 376
+# variable: old — line 376
+# variable: sequence — line 376
+# variable: payload — line 377
+# variable: expected_genesis — line 393
+# variable: digest — line 405
+# variable: previous — line 430
+# definition: verify — line 460
+# parameter: checkpoint — line 460
+# parameter: self — line 460
+# variable: connection — line 462
+# definition: collect — line 465
+# parameter: format_name — line 466
+# parameter: operator — line 466
+# parameter: path — line 466
+# parameter: self — line 466
+# parameter: source — line 466
+# parameter: timestamp — line 466
+# variable: operator — line 469
+# variable: source — line 469
+# variable: timestamp — line 469
+# variable: raw — line 470
+# variable: events — line 471
+# variable: digest — line 472
+# variable: event_digest — line 472
+# variable: event — line 474
+# variable: connection — line 476
+# variable: verified — line 477
+# variable: existing — line 478
+# variable: event — line 497
+# definition: record — line 515
+# parameter: action — line 515
+# parameter: digest — line 515
+# parameter: operator — line 515
+# parameter: self — line 515
+# parameter: timestamp — line 515
+# variable: operator — line 517
+# variable: timestamp — line 517
+# variable: connection — line 524
+# definition: checkpoint — line 540
+# parameter: path — line 540
+# parameter: self — line 540
+# variable: verified — line 542
+# variable: key — line 546
+# definition: timeline — line 551
+# parameter: self — line 552
+# parameter: connection — line 553
+# parameter: kind — line 555
+# parameter: start — line 556
+# parameter: end — line 557
+# parameter: limit — line 558
+# parameter: cursor — line 559
+# variable: end — line 569
+# variable: start — line 569
+# variable: clauses — line 575
+# variable: parameters — line 576
+# variable: clause — line 577
+# variable: value — line 577
+# variable: where — line 581
+# variable: count — line 582
+# variable: where — line 594
+# variable: rows — line 596
 # END CODE MAP
 
 from __future__ import annotations
@@ -145,6 +157,7 @@ from .contracts import (
     MAX_CASE,
     MAX_CUSTODY,
     MAX_EVENTS,
+    MAX_FILE,
     EvidenceError,
     canonical,
     json_value,
@@ -157,6 +170,8 @@ from .parsing import parse
 
 SCHEMA = Path(__file__).resolve().parents[1] / "sql" / "schema.sql"
 ZERO = "0" * 64
+VM_STEPS = 20_000_000
+REQUIRED_TABLES = frozenset({"metadata", "evidence", "events", "custody"})
 
 
 def schema_hash(connection: sqlite3.Connection) -> str:
@@ -207,7 +222,7 @@ class Case:
         root = new_directory(root)
         write_new(root / "case.sqlite", b"")
         case = cls(root)
-        with case.connection(write=True) as connection:
+        with case.connection(write=True, _initialize=True) as connection:
             # executescript initializes only our reviewed SQL, never imported evidence.
             connection.executescript(SCHEMA.read_text(encoding="utf-8"))
             connection.execute("PRAGMA user_version=1")
@@ -230,7 +245,9 @@ class Case:
         return case
 
     @contextmanager
-    def connection(self, *, write: bool = False) -> Iterator[sqlite3.Connection]:
+    def connection(
+        self, *, write: bool = False, _initialize: bool = False
+    ) -> Iterator[sqlite3.Connection]:
         """Open a bounded SQLite transaction; enable foreign keys, disable extension loading/trusted schema."""
         checked_path(self.database)
         for suffix in ("-journal", "-wal", "-shm"):
@@ -242,10 +259,38 @@ class Case:
             isolation_level=None,
         )
         try:
+            # Imported databases are data, not trusted query plans. Bound SQLite before
+            # any application-table query; a forged view must never run as a case.
+            connection.setlimit(sqlite3.SQLITE_LIMIT_LENGTH, MAX_FILE + 65536)
+            remaining = VM_STEPS // 1000
+
+            def progress() -> int:
+                """Interrupt this connection after the documented finite VM budget."""
+                nonlocal remaining
+                remaining -= 1
+                return int(remaining <= 0)
+
+            connection.set_progress_handler(progress, 1000)
             connection.execute("PRAGMA foreign_keys=ON")
             connection.execute("PRAGMA trusted_schema=OFF")
             connection.execute("PRAGMA synchronous=FULL")
             connection.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+            objects = connection.execute(
+                "SELECT name,type,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' LIMIT 65"
+            ).fetchall()
+            if _initialize:
+                if not write or objects:
+                    raise EvidenceError("case_initialization")
+            else:
+                tables = {
+                    name
+                    for schema, name, kind, *_ in connection.execute(
+                        "PRAGMA table_list"
+                    )
+                    if schema == "main" and kind == "table"
+                }
+                if not REQUIRED_TABLES <= tables or len(objects) > 64:
+                    raise EvidenceError("case_schema")
             yield connection
             connection.commit()
         except BaseException:
@@ -276,7 +321,7 @@ class Case:
             raise EvidenceError("database_integrity")
         if connection.execute("PRAGMA user_version").fetchone()[0] != 1:
             raise EvidenceError("case_version")
-        metadata = connection.execute("SELECT * FROM metadata").fetchall()
+        metadata = connection.execute("SELECT * FROM metadata LIMIT 2").fetchall()
         if len(metadata) != 1:
             raise EvidenceError("metadata_integrity")
         case_id, key = metadata[0]
@@ -321,7 +366,9 @@ class Case:
                 "events_digest": events_digest,
                 "event_count": len(normalized),
             }
-        custody = connection.execute("SELECT * FROM custody ORDER BY seq").fetchall()
+        custody = connection.execute(
+            "SELECT * FROM custody ORDER BY seq LIMIT ?", (MAX_CUSTODY + 1,)
+        ).fetchall()
         if not 1 <= len(custody) <= MAX_CUSTODY:
             raise EvidenceError("custody_limit")
         previous = ZERO

@@ -21,14 +21,14 @@
 # parameter: steps — line 57
 # parameter: uses — line 58
 # parameter: with — line 59
-# parameter: run — line 64
-# parameter: shell — line 66
-# parameter: native — line 68
-# parameter: os — line 75
-# parameter: toolchain — line 85
-# parameter: components — line 86
-# parameter: if — line 97
-# parameter: security — line 102
+# parameter: if — line 65
+# parameter: run — line 66
+# parameter: shell — line 69
+# parameter: native — line 71
+# parameter: os — line 78
+# parameter: toolchain — line 88
+# parameter: components — line 89
+# parameter: security — line 105
 # END CODE MAP
 name: Validate
 on:
@@ -61,6 +61,9 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python }}
+      - name: Source Tk imports on disposable Linux worker
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libtk8.6
       - run: python -m pip install --require-hashes -r requirements-dev.lock
       - name: Native SQLite/property/concurrency/privacy and maintained documentation
         shell: bash
@@ -121,3 +124,23 @@ jobs:
           .tools/gitleaks git . --redact --no-banner
           .tools/actionlint
           shellcheck scripts/validate.sh
+
+  native-windows:
+    name: Native Windows portable / patched Python3.14.10
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14.10'
+      - name: Exact native build graph and full advisory gate
+        run: |
+          python -m pip install --require-hashes -r requirements-dev.lock -r requirements-native.lock
+          python -m pip_audit -r requirements-native.lock --disable-pip --no-deps
+      - name: Complete real portable app and two-process evidence-case journey
+        run: |
+          python scripts/build_native.py
+          python scripts/test_native_app.py

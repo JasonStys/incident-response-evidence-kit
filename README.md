@@ -1,5 +1,12 @@
 # Incident Response Evidence Kit
 
+## Graphical evidence-case application
+
+The Windows portable workbench now exposes actual private case creation, authorized JSONL/CSV/opaque collection, exact source-line inspection, bound keyset pagination, custody assertions, private checkpoints and the original minimized timeline/bookmark handoffs. Prepared steps populate ordinary controls inside this same application; they do not collect this PC's logs. Original CLI case paths remain supported.
+
+See the [native application guide](docs/native-workbench.md) for all nine operations, privacy and checkpoint independence, and the [dated native validation report](docs/reports/native-workbench-2026-11-10.md) for exercised scope. Packaging is a separate Windows portable recipe, not a signed installer or legal/forensic certification.
+
+
 [![Validate](https://github.com/JasonStys/incident-response-evidence-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/JasonStys/incident-response-evidence-kit/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/JasonStys/incident-response-evidence-kit/actions/workflows/codeql.yml/badge.svg)](https://github.com/JasonStys/incident-response-evidence-kit/actions/workflows/codeql.yml)
 
@@ -88,6 +95,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [docs/bookmarks.md](docs/bookmarks.md) | Exact-line bookmarks and minimized handoff. |
 | [docs/contracts.md](docs/contracts.md) | Formats, privacy and integrity contracts. |
 | [docs/handbook.md](docs/handbook.md) | Incident Response Evidence Kit handbook. |
+| [docs/native-workbench.md](docs/native-workbench.md) | Native evidence-case workbench. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Actual five-batch parsing, SQLite collection/reverification and Python-allocation measurements. |
 | [docs/reports/bookmarks-2026-11-09.md](docs/reports/bookmarks-2026-11-09.md) | Bookmark handoff workflow validation — 2026-11-09. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable executable-source acceptance snapshot with actual completed Actions checks. |
@@ -96,6 +104,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [docs/reports/demo.json](docs/reports/demo.json) | Approved-field projection of five actual fictional SQLite events, no raw messages/identifiers. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/local.json](docs/reports/local.json) | Source-bound actual local test/coverage counts and native/CLI evidence summary. |
+| [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native evidence-case validation — 2026-11-10. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed Word project guide with source revision and dated validation scope. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact reviewed Office file identities, immutable source baseline and workflow observations. |
@@ -110,6 +119,10 @@ Every authored code file describes its purpose and has generated exact function/
 | [irkit/\_\_main\_\_.py](irkit/__main__.py) | Local-only evidence CLI with explicit authorization and safe error output. Created by Jason Stys. |
 | [irkit/bookmarks.py](irkit/bookmarks.py) | Exact evidence-line annotations and minimized checkpoint-bound handoff. Created by Jason Stys. |
 | [irkit/contracts.py](irkit/contracts.py) | Strict schemas, safe errors and microsecond UTC normalization. Created by Jason Stys. |
+| [irkit/desktop.py](irkit/desktop.py) | Native offline workbench: real project inputs, analysis, searchable evidence, history and export. Jason Stys. |
+| [irkit/desktop\_io.py](irkit/desktop_io.py) | Bounded regular descriptor reads and strict finite JSON for owner-local desktop state. Jason Stys. |
+| [irkit/desktop\_project.py](irkit/desktop_project.py) | Actual case acquisition, private keyset timelines and minimized handoffs for the native workbench. Jason Stys. |
+| [irkit/desktop\_state.py](irkit/desktop_state.py) | Owner-local desktop profile, bounded durable bundles and non-overwriting export. Jason Stys. |
 | [irkit/files.py](irkit/files.py) | Bounded regular-file acquisition and exclusive output in trusted directories. Jason Stys. |
 | [irkit/parsing.py](irkit/parsing.py) | Strict bounded JSONL/CSV event adapters; binary evidence is retained opaquely. Jason Stys. |
 | [irkit/report.py](irkit/report.py) | Allowlisted pseudonymized JSON/CSV/inert HTML; raw messages never enter exports. Jason Stys. |
@@ -120,20 +133,30 @@ Every authored code file describes its purpose and has generated exact function/
 | [pyproject.toml](pyproject.toml) | Strict lint/type/test/statement-and-branch coverage configuration. |
 | [requirements-dev.in](requirements-dev.in) | Exact portable development tool inputs. |
 | [requirements-dev.lock](requirements-dev.lock) | Complete hash-locked portable development graph. |
+| [requirements-native.lock](requirements-native.lock) | Exact hash-locked portable Windows build tools; no first-launch downloads. |
 | [scripts/\_\_init\_\_.py](scripts/__init__.py) | Explicit local validation/demo tools by Jason Stys; importing tools performs no I/O. |
 | [scripts/benchmark.py](scripts/benchmark.py) | Measure bounded synthetic parsing/SQLite collection/reverification; no speedup or SLA claim. Jason Stys. |
+| [scripts/build\_native.py](scripts/build_native.py) | Build the complete real offline workbench as one Windows portable executable. Jason Stys. |
 | [scripts/code\_map.py](scripts/code_map.py) | Generate/check exact Python, SQL, shell and YAML symbol positions. Created by Jason Stys. |
 | [scripts/demo.py](scripts/demo.py) | Run actual synthetic collection, handoff, checkpoint and redacted reporting. Created by Jason Stys. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Maintain a complete tracked-file README purpose inventory; unknown file types fail closed. Created by Jason Stys. |
+| [scripts/native\_acceptance.py](scripts/native_acceptance.py) | Real frozen widget/core/history/export and honest failure-evidence acceptance. Jason Stys. |
 | [scripts/native\_check.py](scripts/native_check.py) | Cross-language SHA256 and actual CLI rejection oracle, only against this built binary. Jason Stys. |
+| [scripts/native\_entry.py](scripts/native_entry.py) | Launch the actual bundled offline project workbench; no setup shell commands. Jason Stys. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
+| [scripts/test\_native\_app.py](scripts/test_native_app.py) | Run the real frozen workbench twice with an owned synthetic profile and exact bundle persistence. Jason Stys. |
 | [scripts/validate.sh](scripts/validate.sh) | Jason Stys: fail-fast portable tests, source contracts and repository privacy invariants; no uploads. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Gate tracked-file privacy, reviewed workflow/crypto bounds and internal documentation links. Jason Stys. |
 | [sql/schema.sql](sql/schema.sql) | Jason Stys: transactional private BLOB evidence, ordered provenance and indexed immutable events. |
 | [tests/conftest.py](tests/conftest.py) | Disposable synthetic evidence fixtures; never read real accounts or host logs. Jason Stys. |
 | [tests/test\_anchor.py](tests/test_anchor.py) | Prove the difference between internal consistency and an independently retained prefix. Jason Stys. |
 | [tests/test\_bookmarks.py](tests/test_bookmarks.py) | Independent exact-line sidecar, privacy, stale-case and operator handoff tests. Created by Jason Stys. |
+| [tests/test\_case\_admission.py](tests/test_case_admission.py) | Real hostile SQLite case-admission and bounded-query regressions; no original host evidence. Jason Stys. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | UTC/schema/JSON/property validation with independent expected values. Created by Jason Stys. |
+| [tests/test\_desktop\_gui.py](tests/test_desktop_gui.py) | Presentation-adapter unit tests with real core/SQLite workers; real widgets are separately frozen-tested. Jason Stys. |
+| [tests/test\_desktop\_inputs.py](tests/test_desktop_inputs.py) | Independent strict desktop JSON/file boundaries and native workflow scope checks. Jason Stys. |
+| [tests/test\_desktop\_project.py](tests/test_desktop_project.py) | Real private-case GUI adapters: exact original bytes, UTC pagination and minimized handoffs. Jason Stys. |
+| [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_parsing.py](tests/test_parsing.py) | JSONL/CSV malformed, duplicate, multiline and bounded-input regression tests. Jason Stys. |
 | [tests/test\_privacy\_cli.py](tests/test_privacy_cli.py) | Actual CLI, public projection, output safety and source-path contracts. Created by Jason Stys. |
 | [tests/test\_store.py](tests/test_store.py) | Actual SQLite atomicity, tamper, checkpoint, concurrency and timeline integration. Jason Stys. |
