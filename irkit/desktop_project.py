@@ -118,7 +118,7 @@ from .store import Case
 
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 PRODUCT, PROFILE = "incident-response-evidence-kit", "IncidentResponseEvidenceKit"
-TITLE, VERSION = "Incident Response Evidence Workbench", "1.1.0"
+TITLE, VERSION = "Incident Response Evidence Workbench", "1.1.1"
 COLUMNS = (
     "UTC / operation",
     "Event / count",
