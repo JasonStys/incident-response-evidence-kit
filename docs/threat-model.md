@@ -16,3 +16,7 @@ Created by Jason Stys. Scope is one authorized operator's trusted local environm
 | Private local files | New POSIX 0700 directories/0600 files, ignored private paths, no automatic network collection | Plaintext SQLite; Windows mode bits do not impose full ACLs; use trusted OS ACLs and encrypted disk |
 
 No encryption-at-rest implementation, multi-user authentication, external upload, automatic legal verdict, remote agent, incident containment, adversary scanning or production hosting exists. No FIPS validation, government/military certification or legal-admissibility assertion. Local administrators can read database key and original evidence, memory and temp data. Python cannot guarantee string/key zeroization. Secure deletion/retention must follow your organization's approved tools; the application never destroys evidence. Review the [runbook](runbook.md) before any authorized non-demo use.
+
+## Native case admission and privacy
+
+No HTTP listener, remote model, host collector or user-supplied command/plugin is added. The GUI accepts owner-authorized files and preserves original clock/custody limits. Imported cases require SQLite-classified ordinary application tables, bounded metadata/custody fetches, 20 MiB plus 64 KiB value length and a 20-million-VM-instruction connection budget. This protects availability without authenticating an unanchored owner-rewritable chain. Private timelines/pins/templates must not be confused with explicitly minimized outputs; closed-profile backups and original cases remain the owner's responsibility.

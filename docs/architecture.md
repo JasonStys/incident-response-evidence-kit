@@ -29,3 +29,7 @@ Limits: 20 MiB per file, 64 MiB original bytes per case, 256 files, 50,000 event
 ## Consequences and revisit conditions
 
 Private BLOBs simplify consistent recovery/backup but duplicate raw/normalized data and are plaintext. Reverification before every mutation is deliberately expensive for integrity; it would need authenticated incremental verification for large cases. No raw timeline browser is provided: CLI exports minimize data by default, but precise times/patterns may still identify people. Revisit encryption, authenticated custody, crash-injection and per-user authorization before any production or multi-user deployment. No pending action is being portrayed as implemented.
+
+## Native owner-local adapter
+
+The actual Tk desktop calls existing Case, timeline, report and bookmark methods on one retained non-daemon worker; only the Tk thread touches widgets. A separate marked OS-local workspace retains bounded exact bundles, while original BLOBs stay in the original case DB. Pagination binds case ID, custody head, filters and exact keyset position. Original case commit and later GUI history are separate transactions: Verify before retrying an uncertain storage failure. Ordinary-table classification and length/VM limits precede imported application-table queries. See [native guide](native-workbench.md).
