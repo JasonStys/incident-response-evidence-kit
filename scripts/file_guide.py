@@ -4,22 +4,22 @@
 # variable: BEGIN — line 33
 # variable: END — line 33
 # variable: SPECIAL — line 34
-# definition: purpose — line 59
-# parameter: path — line 59
-# variable: source — line 63
-# variable: line — line 71
-# definition: main — line 77
-# variable: parser — line 79
-# variable: args — line 81
-# variable: files — line 82
-# variable: rows — line 90
-# variable: path — line 91
-# variable: label — line 92
-# variable: readme — line 94
-# variable: original — line 95
-# variable: end — line 96
-# variable: start — line 96
-# variable: expected — line 97
+# definition: purpose — line 61
+# parameter: path — line 61
+# variable: source — line 65
+# variable: line — line 73
+# definition: main — line 79
+# variable: parser — line 81
+# variable: args — line 83
+# variable: files — line 84
+# variable: rows — line 92
+# variable: path — line 93
+# variable: label — line 94
+# variable: readme — line 96
+# variable: original — line 97
+# variable: end — line 98
+# variable: start — line 98
+# variable: expected — line 99
 # END CODE MAP
 
 from __future__ import annotations
@@ -32,6 +32,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "docs/reports/windows-application-guide-1.1.1.docx": "Reviewed current 1.1.1 installed-app guide: actual screenshots, workflow, immutable code and measured limits.",
+    "docs/reports/windows-application-guide-1.1.1.json": "Current Word, screenshot, source and individually reviewed rendered-page hashes.",
     "requirements-native.lock": "Exact hash-locked portable Windows build tools; no first-launch downloads.",
     "docs/reports/project-guide.docx": "Reviewed Word project guide with source revision and dated validation scope.",
     "docs/reports/publications.json": "Exact reviewed Office file identities, immutable source baseline and workflow observations.",
