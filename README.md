@@ -76,6 +76,14 @@ See [testing](docs/testing.md), [measured validation](docs/reports/validation.md
 
 Every authored code file describes its purpose and has generated exact function/class/parameter/variable line locations. Function/class contracts document state and failure boundaries. Regenerate after formatting with `python scripts/code_map.py`; CI rejects stale maps. Shallow folders: `irkit/`, `sql/`, `native/`, `tests/`, `examples/`, `scripts/`, `docs/`, `.github/workflows/`.
 
+## Native profile storage correction
+
+Version 1.1.1 rejects pre-existing linked/nonregular fixed profile and SQLite
+sidecar entries before initialization can write through an alias. Ordinary
+recovery files and existing profile schemas remain supported; no data is reset.
+See the [confirmed fixture, recovery tests and scope](docs/reports/profile-admission-2026-11-11.md).
+Earlier native releases and documentation retain their own dated evidence.
+
 ## Complete file guide
 
 <!-- BEGIN FILE GUIDE -->
@@ -106,6 +114,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [docs/reports/local.json](docs/reports/local.json) | Source-bound actual local test/coverage counts and native/CLI evidence summary. |
 | [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native evidence-case validation — 2026-11-10. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/profile-admission-2026-11-11.md](docs/reports/profile-admission-2026-11-11.md) | Fixed profile entry admission — November 11, 2026. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed Word project guide with source revision and dated validation scope. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact reviewed Office file identities, immutable source baseline and workflow observations. |
 | [docs/reports/validation.md](docs/reports/validation.md) | Measured validation and release review. |
@@ -159,6 +168,7 @@ Every authored code file describes its purpose and has generated exact function/
 | [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_parsing.py](tests/test_parsing.py) | JSONL/CSV malformed, duplicate, multiline and bounded-input regression tests. Jason Stys. |
 | [tests/test\_privacy\_cli.py](tests/test_privacy_cli.py) | Actual CLI, public projection, output safety and source-path contracts. Created by Jason Stys. |
+| [tests/test\_profile\_admission.py](tests/test_profile_admission.py) | Actual pre-existing alias refusal and ordinary SQLite recovery continuity. Jason Stys. |
 | [tests/test\_store.py](tests/test_store.py) | Actual SQLite atomicity, tamper, checkpoint, concurrency and timeline integration. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Exact official scanner release hashes and compiler version. |
 
