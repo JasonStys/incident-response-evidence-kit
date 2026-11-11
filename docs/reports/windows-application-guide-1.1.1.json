@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "repository": "incident-response-evidence-kit",
+  "runtimeVersion": "1.1.1",
+  "runtimeSource": "6a751ebb9b0bc9d4f434b946d22b46cc3ffaf589",
+  "createdAt": "2026-11-11T10:01:40.473Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-1.1.1.docx",
+  "sha256": "63e1c0dc7a1982d9d9cf8191b9d415f2441f6d9833147229e213090e94548506",
+  "screenshots": [
+    {
+      "file": "owner-unknown-review.png",
+      "sha256": "3aa467cf9a3cbd3e8e4db290910d603d25cc03d828b7e685ae14bea283779b89",
+      "width": 1276,
+      "height": 899,
+      "caption": "The installed app displays a minimized handoff containing one selected auth_failure event. Its source digest and line reference remain; the original actor and private notes are omitted."
+    },
+    {
+      "file": "selected-evidence.png",
+      "sha256": "9144d20f9a790c3512a697a46292ecbc7e235cd601f948a61251f2eee1116ba0",
+      "width": 1276,
+      "height": 899,
+      "caption": "The original synthetic event view retains two preserved files and five timeline events. The selected auth_failure shows its original source line and fictional actor; originals stay separate from the minimized handoff."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "irkit/desktop_state.py",
+      "first": 217,
+      "last": 229,
+      "sha256": "6ea8717ed3942a11931326a12a9040b4ee1702b56730deae9deb1a9069e58fad",
+      "url": "https://github.com/JasonStys/incident-response-evidence-kit/blob/6a751ebb9b0bc9d4f434b946d22b46cc3ffaf589/irkit/desktop_state.py#L217"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Actual installed workflows",
+      "observed": "Full original domain, review and export controls passed two normal native launches; all 13 saved bundles retained exact original bytes.",
+      "result": "Passed"
+    },
+    {
+      "name": "Old-to-new profile",
+      "observed": "The actual installed 1.1.0 app created a synthetic profile; installed 1.1.1 reopened it and retained all 13 exact bundles without reset.",
+      "result": "Passed"
+    },
+    {
+      "name": "Source and distribution",
+      "observed": "Exact-main workflows and processed CodeQL passed with zero open main alerts. Five downloaded assets and installed files matched their verified SHA-256 identities.",
+      "result": "Verified"
+    },
+    {
+      "name": "PC and links",
+      "observed": "Existing links were backed up and retargeted with settings retained. Normal profiles and Docker were unchanged; default-profile shortcut activation remains separately untested.",
+      "result": "Verified"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "ooxmlSchema": "passed",
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "6b6f449898abde36055eeab6e46e515d9a742c082691651aff0e7115b8b51327",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 2,
+        "sha256": "b17e8ba8fdeff34efe84173a6ed6043f85157f631af2cdc9447f5f0e8096404d",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 3,
+        "sha256": "f7fd4213762afb282d573fc07f3dfbdc09c7930e16b81020ce07be779731c1b6",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 4,
+        "sha256": "0602ab733a7ab853e188c989a9612661e2d8bf5a24de7f04d94c93065d061f77",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      }
+    ],
+    "checkedUtc": "2026-11-11T10:23:09.875298+00:00",
+    "method": "All final page content individually inspected by root or named peers; only exact pixel identity carries prior individual inspection."
+  }
+}
